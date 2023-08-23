@@ -1,24 +1,44 @@
 package com.example.demo1.Model;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "User")
 public class User {
-
-    private int id;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "first_name")
     private String name;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "email")
     private String email;
-    private boolean isActive;
+    @Column(name = "phone")
+    private String phone;
+    //private boolean isActive;
 
-    public User(int id , String name, String email, boolean isActive) {
+    @Column(name = "password")
+    private String password;
+
+
+    public User(Long id, String name, String lastName, String email, String phone) {
         this.id = id;
         this.name = name;
+        this.lastName = lastName;
         this.email = email;
-        this.isActive = isActive;
+        this.phone = phone;
     }
 
-    public int getId() {
+    public User(){};
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -30,6 +50,14 @@ public class User {
         this.name = name;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -38,11 +66,19 @@ public class User {
         this.email = email;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -6,5 +6,9 @@ import java.util.List;
 
 public interface IUserDao {
 
-    public List<User> getUser();
+    List<User> getUserNoDB();
+    List<User> getAllUser();
+    void deleteUser(Long id);
+    void createUser(User user);
+    boolean verifyEmail(User user);
 }
